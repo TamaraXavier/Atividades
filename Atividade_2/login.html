@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+ body {
+  background-image: url('imagens/fundo3.jpg');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+}
+
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+li a:hover {
+  background-color: #111;
+}
+
+.active {
+  background-color: #04AA6D;
+}
+
+ul {
+  position: -webkit-sticky; /* Safari */
+  position: sticky;
+  top: 0;
+}
+
+h1 {
+  font-family: Dash-Horizon-Demo;
+  text-align: center;
+}
+
+h2 {
+  font-family: University;
+  text-align: center;
+}
+
+</style>
+</head>
+<body>
+
+<ul>
+  <li><a class="active" href="index.html">Home</a></li>
+  <li><a href="treinos.html">Treinos</a></li>
+  <li><a href="dicas.html">Dicas</a></li>
+  <li style="float:right"><a class="active" href="cadastro.html">Cadastro</a></li>
+  <li style="float:right"><a href="login.html">Login</a></li>
+</ul>
+
+<h1>Treinos Corrida de Rua</h1>
+<h2>Login</h2>
+
+<font color="white">
+<form class="caixa" id="form" action="" method="POST" enctype="multipart/form-data" autocomplete="on">
+<p>Email</p> <input type="email" id="email" name="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" placeholder="Informe Email" required>
+
+<p>
+<label for="senhaUsuario">Senha: </label>
+<p><input id="senhaUsuario" type="password" placeholder="Informe Senha" required>
+
+<p><input type="submit" name="botao" value="Enviar"></p>
+
+<p>Clique no botão para pegar suas coordenadas.</p>
+<button onclick="getLocalizacao()">Qual sua Localização</button>
+<p id="teste"></p>
+<script>
+var x = document.getElementById("teste");
+function getLocalizacao() {
+if (navigator.geolocation) {
+navigator.geolocation.getCurrentPosition(mostraPosicao);
+} else {
+x.innerHTML = "Geolocalização não suportada pelo browser.";
+}
+}
+function mostraPosicao(posicao) {
+x.innerHTML = "Latitude: " + posicao.coords.latitude +
+"<br>Longitude: " + posicao.coords.longitude;
+}
+</script>
+
+
+</form>
+</font>
+
+
+</body>
+</html>
+
+
